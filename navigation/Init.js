@@ -7,7 +7,7 @@ export default class Init extends React.Component {
     this.checkLogin();
   }
   checkLogin = () => {
-    const userLoggedIn = false;
+    const userLoggedIn = true;
     this.props.navigation.navigate(userLoggedIn ? "Main" : "Login");
   };
 
