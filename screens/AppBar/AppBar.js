@@ -6,7 +6,7 @@ export default class AppBar extends React.PureComponent {
   render() {
     return (
       <Appbar style={styles.AppBar}>
-        <Title>LOGO</Title>
+        <Title>BHAAW</Title>
       </Appbar>
     );
   }

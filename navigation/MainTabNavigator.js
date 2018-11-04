@@ -9,7 +9,7 @@ import TabBarIcon from "../components/TabBarIcon";
 
 import HomeScreen from "../screens/HomeScreen";
 import BidScreen from "../screens/BidScreen";
-import SettingsScreen from "../screens/SettingsScreen";
+import ProfileScreen from '../screens/ProfileScreen';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen
@@ -42,17 +42,17 @@ BidStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === "ios" ? "ios-options" : "md-options"}
+      name={Platform.OS === "ios" ? "ios-analytics" : "md-analytics"}
     />
   )
 };
 
-const SettingsStack = createStackNavigator({
-  Settings: SettingsScreen
+const ProfileStack = createStackNavigator({
+  Profile: ProfileScreen
 });
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: "Settings",
+ProfileStack.navigationOptions = {
+  tabBarLabel: "Profile",
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -69,7 +69,7 @@ export default createBottomTabNavigator(
   {
     HomeStack,
     BidStack,
-    SettingsStack
+    ProfileStack
   },
   {
     initialRouteName: "BidStack"
