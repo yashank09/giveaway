@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from 'react-navigation';
 
-import SignIn from "../screens/SignIn";
-import SignUp from "../screens/SignUp";
+import SignIn from "../components/SignIn";
+import SignUp from "../components/SignUp";
 
 export default createBottomTabNavigator({
     SignIn,

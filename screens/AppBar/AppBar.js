@@ -14,6 +14,7 @@ export default class AppBar extends React.PureComponent {
 
 const styles = StyleSheet.create({
     AppBar: {
-        justifyContent: 'center'
+        justifyContent: 'center',
+        elevation: 6
     }
   });

@@ -1,6 +1,7 @@
-import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
-import { Text } from 'react-native-paper';
+import React from "react";
+import { ScrollView, StyleSheet } from "react-native";
+
+import { BidCard } from "../components/BidCard";
 
 export default class BidScreen extends React.Component {
   static navigationOptions = {
@@ -9,17 +10,9 @@ export default class BidScreen extends React.Component {
 
   render() {
     return (
-      <ScrollView style={styles.container}>
-      <Text>OKAY</Text>
+      <ScrollView>
+        <BidCard/>
       </ScrollView>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 15,
-    backgroundColor: '#fff',
-  },
-});
