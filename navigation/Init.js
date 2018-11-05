@@ -10,7 +10,7 @@ export default class Init extends React.Component {
   }
 
   checkLogin = () => {
-    var userLoggedIn = false;
+    var userLoggedIn = true;
     firebase
       .auth()
       .onAuthStateChanged(

@@ -10,9 +10,10 @@ const theme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: "#64dd17",
-    accent: "#ffeb3b"
-  }
+    primary: "#fdd835",
+    accent: "#01579b"
+  },
+  roundness: 6
 };
 
 export default class App extends React.Component {

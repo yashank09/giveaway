@@ -10,6 +10,7 @@ import TabBarIcon from "../components/TabBarIcon";
 import HomeScreen from "../screens/HomeScreen";
 import BidScreen from "../screens/BidScreen";
 import ProfileScreen from '../screens/ProfileScreen';
+import Bid from "../components/Bids/Bid";
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen
@@ -18,7 +19,7 @@ const HomeStack = createStackNavigator({
 HomeStack.navigationOptions = {
   tabBarLabel: "Home",
   tabBarOptions: {
-    activeTintColor: "#64dd17",
+    activeTintColor: "black",
     inactiveTintColor: "gray"
   },
   tabBarIcon: ({ focused }) => (
@@ -30,13 +31,14 @@ HomeStack.navigationOptions = {
 };
 
 const BidStack = createStackNavigator({
-  BidFeed: BidScreen
+  BidFeed: BidScreen,
+  Bid: Bid
 });
 
 BidStack.navigationOptions = {
   tabBarLabel: "Bid Feed",
   tabBarOptions: {
-    activeTintColor: "#64dd17",
+    activeTintColor: "black",
     inactiveTintColor: "gray"
   },
   tabBarIcon: ({ focused }) => (
@@ -60,7 +62,7 @@ ProfileStack.navigationOptions = {
     />
   ),
   tabBarOptions: {
-    activeTintColor: "#64dd17",
+    activeTintColor: "black",
     inactiveTintColor: "gray"
   }
 };
