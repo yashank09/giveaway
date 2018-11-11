@@ -7,7 +7,7 @@ export default class Bid extends React.Component {
     console.log(data);
     return (
       <View>
-        <Text>HELLoo!</Text>
+        <Text>dsd</Text>
       </View>
     );
   }

@@ -9,7 +9,7 @@ import TabBarIcon from "../components/TabBarIcon";
 
 import HomeScreen from "../screens/HomeScreen";
 import BidScreen from "../screens/BidScreen";
-import ProfileScreen from '../screens/ProfileScreen';
+import ProfileScreen from "../screens/ProfileScreen";
 import Bid from "../components/Bids/Bid";
 
 const HomeStack = createStackNavigator({
