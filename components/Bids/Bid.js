@@ -7,7 +7,7 @@ export default class Bid extends React.Component {
     console.log(data);
     return (
       <View>
-        <Text>dsd</Text>
+        <Text>DISPLAY BID DETAILS HERE</Text>
       </View>
     );
   }

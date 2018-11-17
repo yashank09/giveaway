@@ -11,12 +11,12 @@ export default class Init extends React.Component {
 
   checkLogin = () => {
     var userLoggedIn = true;
-    firebase
-      .auth()
-      .onAuthStateChanged(
-        user => (user ? (userLoggedIn = true) : (userLoggedIn = false))
-      );
-    this.props.navigation.navigate(userLoggedIn ? "Main" : "Login");
+    // firebase
+    //   .auth()
+    //   .onAuthStateChanged(
+    //     user => (user ? (userLoggedIn = true) : (userLoggedIn = false))
+    //   );
+    this.props.navigation.navigate(userLoggedIn  ? "Main" : "Login");
   };
 
   render() {

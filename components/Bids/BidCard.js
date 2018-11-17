@@ -7,13 +7,12 @@ import data from "../../assets/MOCK_DATA.json";
 
 export const BidCard = (props) => {
   openBid = (bid) => {
-    // props.navigation.navigate("Bid")
     props.navigate("Bid", {data: bid});
   }
 
   return (
     <View style={styles.container}>
-      {data.slice(0, 10).map(i => (
+      {data.products.slice(0, 10).map(i => (
         <Card style={styles.card} key={i.id} onPress={() => this.openBid(i)}>
           <Card.Cover source={{ uri: i.product_img }} />
           <Card.Content style={styles.content}>

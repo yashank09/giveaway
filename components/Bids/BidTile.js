@@ -13,7 +13,7 @@ export const BidTitle = () => {
   return (
     <View style={styles.container}>
       <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-        {data.slice(10, 15).map(i => (
+        {data.products.slice(10, 15).map(i => (
           <Card style={styles.card} key={i.id} onPress={() => this.openBid(i)}>
             <Card.Cover source={{ uri: i.product_img }} />
             <Card.Content style={styles.content}>
