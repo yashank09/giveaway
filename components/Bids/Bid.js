@@ -15,8 +15,8 @@ export default class Bid extends React.Component {
             <Paragraph>{data.product_bid}</Paragraph>
           </Card.Content>
           <Card.Actions style={styles.content}>
-            <Button>Cancel</Button>
-            <Button>Ok</Button>
+            <Button>Bid </Button>
+            <Button>Bid Down</Button>
           </Card.Actions>
         </Card>
       </View>
