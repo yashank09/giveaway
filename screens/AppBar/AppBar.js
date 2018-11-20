@@ -6,7 +6,7 @@ export default class AppBar extends React.PureComponent {
   render() {
     return (
       <Appbar style={styles.AppBar}>
-        <Title>TITLE</Title>
+        <Title>Bhaaw</Title>
       </Appbar>
     );
   }
@@ -14,6 +14,7 @@ export default class AppBar extends React.PureComponent {
 
 const styles = StyleSheet.create({
     AppBar: {
-        elevation: 6
+        elevation: 6,
+        justifyContent: 'center',
     }
   });
