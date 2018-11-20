@@ -1,5 +1,5 @@
 import React from "react";
-import { Platform } from "react-native";
+import { Platform, Text } from "react-native";
 import {
   createStackNavigator,
   createBottomTabNavigator
@@ -18,10 +18,6 @@ const HomeStack = createStackNavigator({
 
 HomeStack.navigationOptions = {
   tabBarLabel: "Add Bid",
-  tabBarOptions: {
-    activeTintColor: "black",
-    inactiveTintColor: "gray"
-  },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -37,10 +33,6 @@ const BidStack = createStackNavigator({
 
 BidStack.navigationOptions = {
   tabBarLabel: "Bid Feed",
-  tabBarOptions: {
-    activeTintColor: "black",
-    inactiveTintColor: "gray"
-  },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -54,17 +46,13 @@ const ProfileStack = createStackNavigator({
 });
 
 ProfileStack.navigationOptions = {
-  tabBarLabel: "Profile",
+  tabBarLabel: "Settings",
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
       name={Platform.OS === "ios" ? "ios-options" : "md-options"}
     />
-  ),
-  tabBarOptions: {
-    activeTintColor: "black",
-    inactiveTintColor: "gray"
-  }
+  )
 };
 
 export default createBottomTabNavigator(
@@ -74,6 +62,13 @@ export default createBottomTabNavigator(
     ProfileStack
   },
   {
-    initialRouteName: "BidStack"
+    initialRouteName: "BidStack",
+    tabBarOptions: {
+      activeTintColor: "black",
+      labelStyle: {
+        fontSize: 14,
+        textAlign: "center"
+      }
+    }
   }
 );

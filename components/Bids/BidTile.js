@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     },
   card: {
     margin: 10,
-    width: 380
+    width: 360
   },
   content: {
     alignItems: "center"

@@ -5,7 +5,7 @@ import { Surface, Button, TextInput } from "react-native-paper";
 
 import firebase from "../Firebase";
 
-export default class SignIn extends React.Component {
+export default class LogIn extends React.Component {
   constructor() {
     super();
     this.state = {

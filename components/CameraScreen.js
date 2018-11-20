@@ -1,25 +1,23 @@
 import React, { Component } from "react";
-import { View, TouchableOpacity, Text } from "react-native";
+import { View, ScrollView, TouchableOpacity, Text } from "react-native";
 
 import { Camera } from "expo";
 
+import { AddBidImages } from "./Bids/AddBidImages";
+
 export default class CameraScreen extends Component {
-  state = {
-    type: Camera.Constants.Type.back,
-    bidImages: []
-  };
+  constructor() {
+    super();
+    this.state = {
+      type: Camera.Constants.Type.back,
+      bidImages: []
+    };
+  }
 
   snap = async () => {
     if (this.camera) {
       let photo = await this.camera.takePictureAsync();
-      if (this.state.bidImages.length === 0) {
-        this.setState({ bidImages: photo });
-        return;
-      } else {
-        this.setState(prevState => ({
-          bidImages: [prevState.bidImages, photo]
-        }));
-      }
+      this.setState({ bidImages: this.state.bidImages.concat(photo) });
     }
   };
 
@@ -34,17 +32,11 @@ export default class CameraScreen extends Component {
       >
         <View
           style={{
-            flex: 1,
             backgroundColor: "transparent",
             flexDirection: "row"
           }}
         >
           <TouchableOpacity
-            style={{
-              flex: 0.1,
-              alignSelf: "flex-end",
-              alignItems: "center"
-            }}
             onPress={() => {
               this.setState({
                 type:
@@ -54,16 +46,24 @@ export default class CameraScreen extends Component {
               });
             }}
           >
-            <Text style={{ fontSize: 18, marginBottom: 10, color: "white" }}>
-              {" "}
-              Flip{" "}
-            </Text>
+            <Text>Flip</Text>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={this.snap}>
             <Text>CLICK</Text>
           </TouchableOpacity>
         </View>
+
+        <ScrollView
+          contentContainerStyle={{
+            backgroundColor: "transparent",
+            flexDirection: "row"
+          }}
+        >
+          {this.state.bidImages.length !== 0 && (
+            <AddBidImages data={this.state.bidImages} />
+          )}
+        </ScrollView>
       </Camera>
     );
   }
