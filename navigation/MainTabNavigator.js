@@ -7,17 +7,17 @@ import {
 
 import TabBarIcon from "../components/TabBarIcon";
 
-import HomeScreen from "../screens/HomeScreen";
+import AddBidScreen from "../screens/AddBidScreen";
 import BidScreen from "../screens/BidScreen";
 import ProfileScreen from "../screens/ProfileScreen";
 import Bid from "../components/Bids/Bid";
 
 const HomeStack = createStackNavigator({
-  Home: HomeScreen
+  AddBid: AddBidScreen
 });
 
 HomeStack.navigationOptions = {
-  tabBarLabel: "Home",
+  tabBarLabel: "Add Bid",
   tabBarOptions: {
     activeTintColor: "black",
     inactiveTintColor: "gray"
@@ -25,7 +25,7 @@ HomeStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === "ios" ? "ios-home" : "md-home"}
+      name={Platform.OS === "ios" ? "ios-add-circle" : "md-add-circle"}
     />
   )
 };

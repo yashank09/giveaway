@@ -20,7 +20,6 @@ export default class ProfileScreen extends React.Component {
   }
 
   render() {
-    console.log(firebase.auth().currentUser)
     return (
       <View>
         <Text>Profile Settings</Text>
