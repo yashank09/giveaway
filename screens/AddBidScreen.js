@@ -95,12 +95,8 @@ class AddBidScreen extends Component {
               <View>
                 {this.state.bidImages.length !== 0 && (
                 // Array.from(this.state.bidImages).map((i) => {
-                  <Card>
+                  <Card style={styles.card}>
                     <Card.Cover source={{ uri: this.state.bidImages.uri }} />
-                    <Card.Content>
-                      <Title>Hi</Title>
-                      <Paragraph>Hello</Paragraph>
-                    </Card.Content>
                   </Card>
                   // })
                 )}
@@ -113,9 +109,9 @@ class AddBidScreen extends Component {
   }
 }
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff"
+  card: {
+    width: 150,
+    margin: 10
   }
 });
 
