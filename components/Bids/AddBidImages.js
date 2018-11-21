@@ -25,7 +25,8 @@ export const AddBidImages = props => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    backgroundColor: "transparent"
+    backgroundColor: "transparent",
+    justifyContent: "flex-end"
   },
   card: {
     elevation: 2,

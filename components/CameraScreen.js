@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, ScrollView, TouchableOpacity, Text } from "react-native";
+import { View, TouchableOpacity, Text } from "react-native";
 
 import { Camera } from "expo";
 
@@ -24,7 +24,7 @@ export default class CameraScreen extends Component {
   render() {
     return (
       <Camera
-        style={{ flex: 1 }}
+        style={{ flex: 3 }}
         type={this.state.type}
         ref={ref => {
           this.camera = ref;
@@ -32,8 +32,7 @@ export default class CameraScreen extends Component {
       >
         <View
           style={{
-            backgroundColor: "transparent",
-            flexDirection: "row"
+            backgroundColor: "transparent"
           }}
         >
           <TouchableOpacity
@@ -54,16 +53,11 @@ export default class CameraScreen extends Component {
           </TouchableOpacity>
         </View>
 
-        <ScrollView
-          contentContainerStyle={{
-            backgroundColor: "transparent",
-            flexDirection: "row"
-          }}
-        >
+        <View style={{ backgroundColor: "transparent" }}>
           {this.state.bidImages.length !== 0 && (
             <AddBidImages data={this.state.bidImages} />
           )}
-        </ScrollView>
+        </View>
       </Camera>
     );
   }
