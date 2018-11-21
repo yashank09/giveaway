@@ -11,6 +11,9 @@ export default createBottomTabNavigator(
   {
     tabBarOptions: {
       activeTintColor: "black",
+      style: {
+        height: 65
+      },
       labelStyle: {
         fontSize: 14,
         textAlign: "center"

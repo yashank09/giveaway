@@ -64,6 +64,9 @@ export default createBottomTabNavigator(
   {
     initialRouteName: "BidStack",
     tabBarOptions: {
+      style: {
+        height: 65
+      },
       activeTintColor: "black",
       labelStyle: {
         fontSize: 14,
