@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import { View, TouchableOpacity, Text } from "react-native";
+import { View, ScrollView, TouchableOpacity, Text, StyleSheet, Platform } from "react-native";
 
 import { Camera } from "expo";
+import { FontAwesome, Ionicons } from "@expo/vector-icons";
 
 import { AddBidImages } from "./Bids/AddBidImages";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 
 export default class CameraScreen extends Component {
   constructor() {
@@ -23,42 +25,66 @@ export default class CameraScreen extends Component {
 
   render() {
     return (
-      <Camera
-        style={{ flex: 3 }}
-        type={this.state.type}
-        ref={ref => {
-          this.camera = ref;
+      <ScrollView
+        contentContainerStyle={{
+          flexGrow: 1,
+          flexDirection: "column",
+          justifyContent: "space-between"
         }}
       >
-        <View
-          style={{
-            backgroundColor: "transparent"
+        <Camera
+          style={{ flex: 1 }}
+          type={this.state.type}
+          ref={ref => {
+            this.camera = ref;
           }}
         >
-          <TouchableOpacity
-            onPress={() => {
-              this.setState({
-                type:
-                  this.state.type === Camera.Constants.Type.back
-                    ? Camera.Constants.Type.front
-                    : Camera.Constants.Type.back
-              });
+          <View
+            style={{
+              backgroundColor: "transparent",
+              flexDirection: "row",
+              justifyContent: "space-between"
             }}
           >
-            <Text>Flip</Text>
-          </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                this.setState({
+                  type:
+                    this.state.type === Camera.Constants.Type.back
+                      ? Camera.Constants.Type.front
+                      : Camera.Constants.Type.back
+                });
+              }}
+              style={styles.cameraBtn}
+            >
+              <MaterialIcons name="sync" size={28} color="black" />
+            </TouchableOpacity>
 
-          <TouchableOpacity onPress={this.snap}>
-            <Text>CLICK</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={{ backgroundColor: "transparent" }}>
-          {this.state.bidImages.length !== 0 && (
+            <TouchableOpacity style={styles.cameraBtn} onPress={this.snap}>
+              <Ionicons name="ios-camera" size={32} color="black" />
+            </TouchableOpacity>
+          </View>
+        </Camera>
+        {this.state.bidImages.length !== 0 && (
+          <View style={{ backgroundColor: "transparent" }}>
             <AddBidImages data={this.state.bidImages} />
-          )}
-        </View>
-      </Camera>
+          </View>
+        )}
+      </ScrollView>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  cameraBtn: {
+    margin: 10,
+    height: 45,
+    width: 100,
+    backgroundColor: "#fff",
+    padding: 5,
+    opacity: 0.7,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 4
+  }
+});
