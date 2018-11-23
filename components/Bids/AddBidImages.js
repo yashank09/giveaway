@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
   card: {
     elevation: 2,
     margin: 10,
-    width: 120
+    width: 120,
+    height: 70
   }
 });
