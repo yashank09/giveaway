@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, TouchableOpacity, StyleSheet } from "react-native";
+import {View, TouchableOpacity, StyleSheet } from "react-native";
 
 import { Camera } from "expo";
 import { Ionicons } from "@expo/vector-icons";
@@ -25,10 +25,10 @@ export default class CameraScreen extends Component {
 
   render() {
     return (
-      <View>
+      <View style={{flex: 1}}>
         <Camera
-          style={{ flex: 1 }}
           type={this.state.type}
+          style={{flex: 1}}
           ref={ref => {
             this.camera = ref;
           }}
@@ -60,11 +60,7 @@ export default class CameraScreen extends Component {
           </View>
         </Camera>
 
-        <View
-          style={{
-            backgroundColor: "transparent"
-          }}
-        >
+        <View>
           {this.state.bidImages.length !== 0 && (
             <AddBidImages data={this.state.bidImages} />
           )}
