@@ -1,7 +1,8 @@
 import React from "react";
-import { ScrollView, StyleSheet } from "react-native";
+import { ScrollView, View, StyleSheet } from "react-native";
 
 import { Card } from "react-native-paper";
+import { Ionicons } from "@expo/vector-icons";
 
 export const AddBidImages = props => {
   return (
@@ -11,18 +12,21 @@ export const AddBidImages = props => {
       snapToAlignment={"center"}
       contentContainerStyle={styles.container}
     >
-      {props.data.length === 0 && (
-        <Card style={styles.card}>
-          <Card.Cover source={{ uri: props.data.uri }} />
-        </Card>
+      {props.data.length >= 0 && (
+        <View style={{ flexDirection: "row" }}>
+          <Ionicons
+            name="ios-checkmark-circle"
+            size={38}
+            color="#fdd835"
+            style={{margin: 18}}
+          />
+          {props.data.map(i => (
+            <Card key={i.uri} style={styles.card}>
+              <Card.Cover source={{ uri: i.uri }} />
+            </Card>
+          ))}
+        </View>
       )}
-
-      {props.data.length >= 0 &&
-        props.data.map(i => (
-          <Card key={i.uri} style={styles.card}>
-            <Card.Cover source={{ uri: i.uri }} />
-          </Card>
-        ))}
     </ScrollView>
   );
 };
