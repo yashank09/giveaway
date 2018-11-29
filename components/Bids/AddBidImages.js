@@ -6,35 +6,32 @@ import { Ionicons } from "@expo/vector-icons";
 
 export const AddBidImages = props => {
   return (
-    <ScrollView
-      horizontal
-      snapToInterval={120}
-      snapToAlignment={"center"}
-      contentContainerStyle={styles.container}
-    >
-      {props.data.length >= 0 && (
-        <View style={{ flexDirection: "row" }}>
-          <Ionicons
-            name="ios-checkmark-circle"
-            size={38}
-            color="#fdd835"
-            style={{margin: 18}}
-          />
-          {props.data.map(i => (
-            <Card key={i.uri} style={styles.card}>
-              <Card.Cover source={{ uri: i.uri }} />
-            </Card>
-          ))}
-        </View>
-      )}
-    </ScrollView>
+    props.data.length >= 0 && (
+      <ScrollView
+        horizontal
+        snapToInterval={120}
+        snapToAlignment={"center"}
+        contentContainerStyle={styles.container}
+      >
+        <Ionicons
+          name="ios-checkmark-circle"
+          size={38}
+          color="#fdd835"
+          style={{ margin: 23 }}
+        />
+        {props.data.map(i => (
+          <Card key={i.uri} style={styles.card}>
+            <Card.Cover source={{ uri: i.uri }} />
+          </Card>
+        ))}
+      </ScrollView>
+    )
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    backgroundColor: "transparent",
     justifyContent: "flex-end"
   },
   card: {

@@ -61,9 +61,7 @@ export default class CameraScreen extends Component {
         </Camera>
 
         <View>
-          {this.state.bidImages.length !== 0 && (
             <AddBidImages data={this.state.bidImages} />
-          )}
         </View>
       </View>
     );
