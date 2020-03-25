@@ -1,6 +1,9 @@
 import React from "react";
 import { Platform, StatusBar, StyleSheet, View } from "react-native";
-import { AppLoading, Asset, Font, Icon } from "expo";
+import { AppLoading } from "expo";
+import * as Icon from "@expo/vector-icons";
+import { Asset } from "expo-asset";
+import * as Font from "expo-font";
 import AppNavigator from "./navigation/AppNavigator";
 
 import { Provider as PaperProvider, DefaultTheme } from "react-native-paper";
