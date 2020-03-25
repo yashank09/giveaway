@@ -1,15 +1,13 @@
 import React from "react";
 import { Appbar, Title } from "react-native-paper";
-import { StyleSheet, SafeAreaView } from "react-native";
+import { StyleSheet } from "react-native";
 
 export default class AppBar extends React.PureComponent {
   render() {
     return (
-      <SafeAreaView>
-        <Appbar style={styles.AppBar}>
-          <Title>Bhaaw</Title>
-        </Appbar>
-      </SafeAreaView>
+      <Appbar style={styles.AppBar}>
+        <Title style={{ fontFamily: "open-sans-bold" }}>ShareCare</Title>
+      </Appbar>
     );
   }
 }
@@ -17,6 +15,7 @@ export default class AppBar extends React.PureComponent {
 const styles = StyleSheet.create({
   AppBar: {
     elevation: 6,
-    justifyContent: "center"
+    paddingLeft: 12,
+    fontFamily: "open-sans"
   }
 });

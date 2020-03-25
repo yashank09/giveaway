@@ -1,76 +1,42 @@
-import React from "react";
-import { Platform, Text } from "react-native";
-import {
-  createStackNavigator,
-  createBottomTabNavigator
-} from "react-navigation";
-
-import TabBarIcon from "../components/TabBarIcon";
+import { createStackNavigator } from "react-navigation-stack";
+import { createBottomTabNavigator } from "react-navigation-tabs";
 
 import AddBidScreen from "../screens/AddBidScreen";
 import BidScreen from "../screens/BidScreen";
-import ProfileScreen from "../screens/ProfileScreen";
+import AddDonationScreen from "../screens/AddDonationScreen";
 import Bid from "../components/Bids/Bid";
 
-const HomeStack = createStackNavigator({
-  AddBid: AddBidScreen
-});
-
-HomeStack.navigationOptions = {
-  tabBarLabel: "Add Bid",
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === "ios" ? "ios-add-circle" : "md-add-circle"}
-    />
-  )
-};
-
-const BidStack = createStackNavigator({
+const DonationStack = createStackNavigator({
   BidFeed: BidScreen,
   Bid: Bid
 });
 
-BidStack.navigationOptions = {
-  tabBarLabel: "Bid Feed",
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === "ios" ? "ios-analytics" : "md-analytics"}
-    />
-  )
+DonationStack.navigationOptions = {
+  tabBarLabel: "Donations"
 };
 
 const ProfileStack = createStackNavigator({
-  Profile: ProfileScreen
+  Profile: AddDonationScreen,
+  AddBid: AddBidScreen
 });
 
 ProfileStack.navigationOptions = {
-  tabBarLabel: "Settings",
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === "ios" ? "ios-options" : "md-options"}
-    />
-  )
+  tabBarLabel: "Donate"
 };
 
 export default createBottomTabNavigator(
   {
-    HomeStack,
-    BidStack,
+    DonationStack,
     ProfileStack
   },
   {
-    initialRouteName: "BidStack",
+    initialRouteName: "DonationStack",
     tabBarOptions: {
-      style: {
-        height: 65
-      },
       activeTintColor: "black",
       labelStyle: {
         fontSize: 14,
-        textAlign: "center"
+        marginBottom: 14,
+        fontFamily: "open-sans-bold"
       }
     }
   }

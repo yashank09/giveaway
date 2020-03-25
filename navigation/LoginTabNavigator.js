@@ -1,4 +1,4 @@
-import { createBottomTabNavigator } from "react-navigation";
+import { createBottomTabNavigator } from "react-navigation-tabs";
 
 import LogIn from "../components/LogIn";
 import SignUp from "../components/SignUp";
@@ -11,12 +11,10 @@ export default createBottomTabNavigator(
   {
     tabBarOptions: {
       activeTintColor: "black",
-      style: {
-        height: 65
-      },
       labelStyle: {
         fontSize: 14,
-        textAlign: "center"
+        marginBottom: 14,
+        fontFamily: "open-sans-bold"
       }
     }
   }

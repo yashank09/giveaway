@@ -4,6 +4,8 @@ import { AppLoading } from "expo";
 import * as Icon from "@expo/vector-icons";
 import { Asset } from "expo-asset";
 import * as Font from "expo-font";
+
+import { createAppContainer } from "react-navigation";
 import AppNavigator from "./navigation/AppNavigator";
 
 import { Provider as PaperProvider, DefaultTheme } from "react-native-paper";
@@ -18,6 +20,8 @@ const theme = {
   },
   roundness: 6
 };
+
+const AppContainer = createAppContainer(AppNavigator);
 
 export default class App extends React.Component {
   state = {
@@ -39,7 +43,7 @@ export default class App extends React.Component {
           <View style={styles.container}>
             {Platform.OS === "ios" && <StatusBar barStyle="default" />}
             <AppBar />
-            <AppNavigator />
+            <AppContainer />
           </View>
         </PaperProvider>
       );
@@ -55,9 +59,9 @@ export default class App extends React.Component {
       Font.loadAsync({
         // This is the font that we are using for our tab bar
         ...Icon.Ionicons.font,
-        // We include SpaceMono because we use it in HomeScreen.js. Feel free
-        // to remove this if you are not using it in your app
-        "space-mono": require("./assets/fonts/SpaceMono-Regular.ttf")
+        "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
+        "open-sans-light": require("./assets/fonts/OpenSans-Light.ttf"),
+        "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf")
       })
     ]);
   };
