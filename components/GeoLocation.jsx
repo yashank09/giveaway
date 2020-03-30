@@ -11,18 +11,17 @@ export default props => {
   const [loading, toggleLoading] = useState(false);
 
   const getLocationAsync = async () => {
-    console.log(loading);
     toggleLoading(true);
     let { status } = await Permissions.askAsync(Permissions.LOCATION);
 
     if (status !== "granted") {
       toggleLoading(false);
       setVisible(true);
+    } else if (status === "granted") {
+      let location = await Location.getCurrentPositionAsync();
+      toggleLoading(false);
+      props.setLocation(location);
     }
-
-    let location = await Location.getCurrentPositionAsync();
-    toggleLoading(false);
-    props.setLocation(location);
   };
 
   return (

@@ -1,12 +1,12 @@
 import { createStackNavigator } from "react-navigation-stack";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 
-import BidScreen from "../screens/BidScreen";
+import showDonationScreen from "../screens/ShowDonationScreen";
 import AddDonateScreen from "../screens/AddDonateScreen";
 import Bid from "../components/Bids/Bid";
 
 const DonationStack = createStackNavigator({
-  BidFeed: BidScreen,
+  BidFeed: showDonationScreen,
   Bid: Bid
 });
 

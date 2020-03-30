@@ -16,7 +16,7 @@ export default class Init extends React.Component {
       .onAuthStateChanged(user =>
         user ? (userLoggedIn = true) : (userLoggedIn = false)
       );
-    this.props.navigation.navigate(!userLoggedIn ? "Main" : "Login");
+    this.props.navigation.navigate(userLoggedIn ? "Main" : "Login");
   };
 
   render() {

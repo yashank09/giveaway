@@ -35,11 +35,13 @@ export default AddDonateScreen = () => {
       setVisible(true);
       return;
     } else {
-      const userId = firebase.auth().currentUser.uid;
       const database = firebase.database();
+
+      const userId = firebase.auth().currentUser.uid;
       const timestamp = Date.now();
       const latitude = location.coords.latitude;
       const longitude = location.coords.longitude;
+
       database.ref("donations/" + userId).push({
         itemName,
         itemDesc,
@@ -56,7 +58,6 @@ export default AddDonateScreen = () => {
   };
 
   const setImageFirebase = async (userId, timestamp) => {
-    console.log(timestamp);
     const response = await fetch(imageUri);
     const blob = await response.blob();
     var ref = firebase
@@ -67,7 +68,7 @@ export default AddDonateScreen = () => {
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={styles.container}>
       <Title style={styles.title}>
         Thank You for Donating Food & Utilities for our Community!
       </Title>
@@ -131,8 +132,12 @@ export default AddDonateScreen = () => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff"
+  },
   title: {
-    fontFamily: "open-sans-bold",
+    fontFamily: "open-sans",
     textAlign: "center",
     marginTop: 12,
     marginBottom: 32,
