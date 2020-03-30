@@ -5,7 +5,7 @@ import { Title, Portal, Dialog, Text, Button } from "react-native-paper";
 
 import * as Location from "expo-location";
 import * as Permissions from "expo-permissions";
-import MapView from "react-native-maps";
+import MapView, { Marker } from "react-native-maps";
 
 import firebase from "../Firebase";
 
@@ -35,21 +35,30 @@ export default showDonationScreen = props => {
     }
 
     async function getData() {
-      let data = firebase.database().ref("donations");
-      data.on("value", snapshot => {
-        setDonations(donations.concat(snapshot.val()));
+      const db = firebase.database().ref("donations");
+      let data = [];
+      //Change this ASAP! Has to be a cleaner way!
+      db.on("value", snapshot => {
+        for (let i in snapshot.val()) {
+          for (let j in snapshot.val()[i]) {
+            data.push(snapshot.val()[i][j]);
+          }
+        }
+        return data;
       });
+      setDonations(data);
     }
 
     getLocation();
     getData();
   }, []);
 
-  console.log(donations);
-
+  donations.map(donation =>
+    console.log({ long: donation.longitude, lat: donation.latitude })
+  );
   return (
-    <View>
-      <ScrollView style={styles.container}>
+    <View style={styles.container}>
+      <ScrollView>
         <Title style={styles.heading}>Donations Around You</Title>
         <MapView
           style={styles.mapStyle}
@@ -60,7 +69,20 @@ export default showDonationScreen = props => {
             longitudeDelta: 0.1
           }}
           showsUserLocation={true}
-        />
+        >
+          {donations.length >= 0 &&
+            donations.map((donation, index) => (
+              <Marker
+                key={index}
+                coordinate={{
+                  latitude: donation.latitude,
+                  longitude: donation.longitude
+                }}
+                title={donation.itemName}
+                description={donation.itemDesc}
+              />
+            ))}
+        </MapView>
       </ScrollView>
 
       <Portal>
@@ -96,7 +118,8 @@ showDonationScreen.navigationOptions = {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
+    height: "100%"
   },
   heading: {
     marginTop: 8,
@@ -108,6 +131,6 @@ const styles = StyleSheet.create({
     marginLeft: "auto",
     marginRight: "auto",
     width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height * 0.4
+    height: Dimensions.get("window").height * 0.45
   }
 });

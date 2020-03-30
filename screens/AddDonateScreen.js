@@ -134,7 +134,8 @@ export default AddDonateScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
+    height: "100%"
   },
   title: {
     fontFamily: "open-sans",
@@ -155,7 +156,7 @@ const styles = StyleSheet.create({
   },
   inputDesc: {
     width: "70%",
-    height: 100,
+    maxHeight: 80,
     marginBottom: 15
   },
   fab: {
