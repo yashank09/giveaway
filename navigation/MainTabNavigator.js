@@ -1,9 +1,8 @@
 import { createStackNavigator } from "react-navigation-stack";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 
-import AddBidScreen from "../screens/AddBidScreen";
 import BidScreen from "../screens/BidScreen";
-import AddDonationScreen from "../screens/AddDonationScreen";
+import AddDonateScreen from "../screens/AddDonateScreen";
 import Bid from "../components/Bids/Bid";
 
 const DonationStack = createStackNavigator({
@@ -15,19 +14,18 @@ DonationStack.navigationOptions = {
   tabBarLabel: "Donations"
 };
 
-const ProfileStack = createStackNavigator({
-  Profile: AddDonationScreen,
-  AddBid: AddBidScreen
+const DonateStack = createStackNavigator({
+  Donate: AddDonateScreen
 });
 
-ProfileStack.navigationOptions = {
+DonateStack.navigationOptions = {
   tabBarLabel: "Donate"
 };
 
 export default createBottomTabNavigator(
   {
     DonationStack,
-    ProfileStack
+    DonateStack
   },
   {
     initialRouteName: "DonationStack",
